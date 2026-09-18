@@ -53,3 +53,16 @@ print(df.groupby('parental level of education')['average_score'].mean().sort_val
 
 print("\n=== PORCENTAJE POR CATEGORÍA ===")
 print(df['rendimiento_categoria'].value_counts(normalize=True) * 100)
+
+# ==========================================
+# VISUALIZACIÓN 1: DISTRIBUCIÓN DE RENDIMIENTO
+# ==========================================
+plt.figure(figsize=(8, 5))
+df['rendimiento_categoria'].value_counts().reindex(['Bajo', 'Medio', 'Alto']).plot(kind='bar', color=['#e74c3c', '#f1c40f', '#2ecc71'])
+plt.title('Distribución de Estudiantes por Categoría de Rendimiento')
+plt.xlabel('Categoría')
+plt.ylabel('Cantidad de Estudiantes')
+plt.tight_layout()
+plt.savefig('outputs/distribucion_rendimiento.png')
+plt.close()
+print("Gráfico 1 guardado en outputs/distribucion_rendimiento.png")
