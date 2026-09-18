@@ -21,3 +21,21 @@ print(f"\nRegistros duplicados: {df.duplicated().sum()}")
 
 print("\nEstadísticas descriptivas:")
 print(df.describe())
+
+# Limpieza
+df = df.drop_duplicates()
+
+# Crear variable average_score
+df['average_score'] = df[['math score', 'reading score', 'writing score']].mean(axis=1)
+
+# Clasificación de rendimiento
+def clasificar_rendimiento(prom):
+    if prom < 60:
+        return 'Bajo'
+    elif prom < 80:
+        return 'Medio'
+    else:
+        return 'Alto'
+
+df['rendimiento_categoria'] = df['average_score'].apply(clasificar_rendimiento)
+
