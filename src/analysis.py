@@ -66,3 +66,19 @@ plt.tight_layout()
 plt.savefig('outputs/distribucion_rendimiento.png')
 plt.close()
 print("Gráfico 1 guardado en outputs/distribucion_rendimiento.png")
+
+# ==========================================
+# VISUALIZACIÓN 2: PROMEDIO POR MATERIA
+# ==========================================
+promedios_materias = df[['math score', 'reading score', 'writing score']].mean()
+
+plt.figure(figsize=(8, 5))
+promedios_materias.plot(kind='bar', color=['#3498db', '#9b59b6', '#1abc9c'])
+plt.title('Promedio General por Materia')
+plt.xlabel('Materia')
+plt.ylabel('Promedio')
+plt.ylim(0, 100)
+plt.tight_layout()
+plt.savefig('outputs/promedio_por_materia.png')
+plt.close()
+print("Gráfico 2 guardado en outputs/promedio_por_materia.png")
