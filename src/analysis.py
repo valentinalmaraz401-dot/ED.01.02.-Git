@@ -82,3 +82,17 @@ plt.tight_layout()
 plt.savefig('outputs/promedio_por_materia.png')
 plt.close()
 print("Gráfico 2 guardado en outputs/promedio_por_materia.png")
+
+# ==========================================
+# VISUALIZACIÓN 3: IMPACTO DEL CURSO DE PREPARACIÓN
+# ==========================================
+plt.figure(figsize=(8, 5))
+df.boxplot(column='average_score', by='test preparation course', grid=False)
+plt.title('Impacto del Curso de Preparación en el Promedio')
+plt.suptitle('')
+plt.xlabel('Curso de Preparación')
+plt.ylabel('Promedio General')
+plt.tight_layout()
+plt.savefig('outputs/impacto_curso_preparacion.png')
+plt.close()
+print("Gráfico 3 guardado en outputs/impacto_curso_preparacion.png")
