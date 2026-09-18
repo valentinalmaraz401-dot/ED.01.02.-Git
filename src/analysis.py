@@ -39,3 +39,17 @@ def clasificar_rendimiento(prom):
 
 df['rendimiento_categoria'] = df['average_score'].apply(clasificar_rendimiento)
 
+# Análisis de preguntas
+print("\n=== PROMEDIO POR ÁREA ===")
+print(f"Matemáticas: {df['math score'].mean():.2f}")
+print(f"Lectura: {df['reading score'].mean():.2f}")
+print(f"Escritura: {df['writing score'].mean():.2f}")
+
+print("\n=== IMPACTO CURSO DE PREPARACIÓN ===")
+print(df.groupby('test preparation course')['average_score'].mean())
+
+print("\n=== NIVEL EDUCATIVO DE PADRES ===")
+print(df.groupby('parental level of education')['average_score'].mean().sort_values(ascending=False))
+
+print("\n=== PORCENTAJE POR CATEGORÍA ===")
+print(df['rendimiento_categoria'].value_counts(normalize=True) * 100)
